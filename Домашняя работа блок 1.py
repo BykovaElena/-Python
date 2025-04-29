@@ -1,0 +1,85 @@
+print('Задание 1')
+phrase_1 = 'nhb ckjdf'
+phrase_2 = 'lkjlkjnkuh  kjhkj knj'
+if len(phrase_1)>len(phrase_2):
+   print('Фраза 1 длинее фразы 2')
+elif len(phrase_1)== len(phrase_2):
+   print('Фраза 1 равна фразе 2')
+else:
+   print('Фраза 2 длинее фразы 1')
+
+print('Задание 2')
+year = int(input())
+if (year-int(abs(2000)))%4==0:
+   print('Високосныйгод')
+else: 
+   print('ОБычный год')
+
+print('задание 3')
+print ('Введите дату числами от 1 до 31')
+date = int(input ())
+if (date >31) or (date <=0):
+   print ('Введите дату числами от 1 до 31')
+else:
+   print ('Введите месяц')
+month = input().lower() #приведи, чтобы первая буква была большой
+if ((date >= 21 and month == 'март') or (date <= 20 and month == 'апрель')):
+   print('Ваш знак зодиака:Овен')
+elif (date == 29 and month == 'февраль'):
+   print ('Рыба')
+elif ((date <= 20 and month == 'март') or (date >= 19 and month == 'февраль')):
+   print('Ваш знак зодиака:Рыба')
+elif ((date >= 21 and month == 'апрель') or (date <= 20 and month == 'май')):
+   print('Ваш знак зодиака:Телец')
+elif ((date >= 21 and month == 'май') or (date <= 21 and month == 'июнь')):
+   print('Ваш знак зодиака:Близнецы')
+elif ((date >= 22 and month == 'июнь') or (date <=22 and month == 'июль')):
+   print('Ваш знак зодиака:Рак')
+elif ((date >= 23 and month == 'июль') or (date <=22 and month == 'август')):
+   print('Ваш знак зодиака:Лев')
+elif ((date >= 23 and month == 'август') or (date <=22 and month == 'сентябрь')):
+   print('Ваш знак зодиака:Дева')
+elif ((date >= 23 and month == 'сентябрь') or (date <=22 and month == 'октябрь')):
+   print('Ваш знак зодиака:Весы')
+elif ((date >= 23 and month == 'октябрь') or (date <=22 and month == 'ноябрь')):
+   print('Ваш знак зодиака:Скорпион')
+elif ((date >= 23 and month == 'ноябрь') or (date <=22 and month == 'декабрь')):
+   print('Ваш знак зодиака:Стрелец')
+elif ((date >= 22 and month == 'декабрь') or (date <=19 and month == 'январь')):
+   print('Ваш знак зодиака:Козерог')
+elif ((date >= 20 and month == 'январь') or (date <=19 and month == 'февраль')):
+   print('Ваш знак зодиака:Водолей')
+else:
+  print('Введите дату числами от 1 до 31, введите месяц кирилицей')
+
+
+print ('Задание 4')
+# если каждое из трех измерений менее или равно 15 сантиметрам, то выведите на экран “Коробка №1”;
+# если хотя бы одно из измерений больше 2 метров, то выводите “Упаковка для лыж”;
+# если хотя бы одно из измерений больше 15 сантиметров, но менее 50 сантиметров, то выводите “Коробка №2”;
+# во всех остальных случаях выводите “Коробка №3”.
+# Пример работы программы:
+# 1.
+
+# width = 15
+# length = 55
+# height = 15
+# Результат:
+# Коробка №3
+list = []
+print ('Укажите ширину коробки в см')
+width = list.append (int(input ()))
+print ('Укажите длину коробки в см')
+length = list.append (int(input ()))
+print ('Укажите высоту коробки в см')
+height = list.append (int(input ()))
+sorted_list = sorted (list)
+result = sorted_list [-1]
+if result <=15:
+   print ('“Коробка №1”')
+elif result>=200:
+   print ('“Упаковка для лыж”')
+elif ((result >15) and (result <50)):
+   print ('“Коробка №2”')
+else:
+   print ('“Коробка №3”')
