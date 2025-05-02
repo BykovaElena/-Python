@@ -83,3 +83,62 @@ elif ((result >15) and (result <50)):
    print ('“Коробка №2”')
 else:
    print ('“Коробка №3”')
+
+#Домашнее задание «Типы данных и циклы. Часть 1»
+   
+print ('Задание 1')
+print ('Введите слово на латинице')
+word = input()
+word_1 = (len(word))
+if word_1 % 2==0:
+   print (word [len(word)//2-1: len(word)//2+1])
+else:
+   print (word [len(word)//2])
+
+
+
+
+
+print ('Задание 2')
+amount = 0 
+while True: 
+    number = int(input('Введите число: ')) 
+    if number == 0: 
+        break  
+    amount += number 
+print(amount) 
+
+
+print ('Задание 3')
+boys = ['Peter', 'Alex' , 'John' , 'Arthur' , 'Richard' ]
+boys.sort()
+#print (boys)
+girls = ['Kate', 'Liza', 'Kira', 'Emma' , 'Trisha']
+girls.sort()
+#print (girls)
+union = zip (boys, girls)
+length_boys = len(boys)
+length_girls = len(girls)
+if length_boys != length_girls:
+   print ('Внимание, кто-то может остаться без пары!')
+else:
+   print (f'Идеальные пары: {list(union)}')
+
+
+
+print ('Задание 4')
+countries_temperature = [
+ ['Таиланд', [75.2, 77, 78.8, 73.4, 68, 75.2, 77]],
+ ['Германия', [57.2, 55.4, 59, 59, 53.6]],
+ ['Россия', [35.6, 37.4, 39.2, 41, 42.8, 39.2, 35.6]],
+['Польша', [50, 50, 53.6, 57.2, 55.4, 55.4]]
+]
+countries_temperature_del_country = [row [1] for row in countries_temperature]
+print(countries_temperature_del_country)
+thailand, germany, russia, poland = countries_temperature_del_country
+print(f'Средняя температура в странах: Тайланд  - {round (5/9*(sum(thailand) / len(thailand)-32), 1)} C',
+      f' Германия - {round (5/9*(sum(germany) / len(germany)-32), 1)} C',
+      f' Россия - {round (5/9*(sum(russia) / len(russia)-32),1)} C',
+       f' Польша - {round (5/9*(sum(poland) / len(poland)-32),1)} C')
+
+
