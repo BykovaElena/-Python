@@ -141,4 +141,73 @@ print(f'Средняя температура в странах: Тайланд 
       f' Россия - {round (5/9*(sum(russia) / len(russia)-32),1)} C',
        f' Польша - {round (5/9*(sum(poland) / len(poland)-32),1)} C')
 
+# Домашнее задание к лекции «Типы данных и циклы. Часть 2»
+
+
+
+print ('Задание 1')
+ids = {'user1': [213, 213, 213, 15, 213],
+'user2': [54, 54, 119, 119, 119],
+'user3': [213, 98, 98, 35]}
+geo_mark = ids.values ()
+#print (geo_mark)
+user_1, user_2, user_3 = geo_mark
+#print (set (user_1), set (user_2), set (user_3))
+result = sorted(set (user_1).union(set (user_2), set (user_3))) 
+print (result)
+
+print ('Задание 2')
+queries = [
+'смотреть сериалы онлайн',
+'новости спорта',
+'афиша кино',
+'курс доллара' ,
+'сериалы этим летом',
+'курс по питону',
+'сериалы про спорт' ,
+]
+
+spisok = []
+
+for item in queries:
+    spisok.append(len(item.split()))
+
+i = 1
+
+#print(spisok)
+while i <= max(spisok):
+    if spisok.count(i) >0:
+        print('Поисковых запросов, содержащих', i ,'слов(а/о):', round(spisok.count(i)*100/len(spisok),2))
+    i += 1
+
+
+print ('Задание 3')
+results = {
+'vk': {'revenue': 103, 'cost': 98},
+'yandex': {'revenue': 179, 'cost': 153},
+'facebook': {'revenue': 103, 'cost': 110},
+'adwords': {'revenue': 35, 'cost': 34},
+'twitter': {'revenue': 11, 'cost': 24},
+}
+
+results_roi = {}
+
+for row,values in results.items():
+    results_roi.update({row:{'ROI':round((values['revenue'] / values['cost'] - 1) * 100, 2), 'cost':values['cost'], 'revenue':values['revenue']}})
+
+print (results_roi)
+
+
+print ('Задание 4')
+
+stats = {'facebook': 55, 'yandex': 115, 'vk': 120, 'google': 99, 'email': 42, 'ok': 98}
+sorted_stats = sorted(stats.items(), key = lambda item: item[1])
+print (sorted_stats)
+i = sorted_stats[-1][0]
+print (f'Максимальный объем продаж на рекламном канале:', i)
+
+
+
+
+
 
