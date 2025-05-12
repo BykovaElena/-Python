@@ -150,11 +150,12 @@ ids = {'user1': [213, 213, 213, 15, 213],
 'user2': [54, 54, 119, 119, 119],
 'user3': [213, 98, 98, 35]}
 geo_mark = ids.values ()
-#print (geo_mark)
-user_1, user_2, user_3 = geo_mark
-#print (set (user_1), set (user_2), set (user_3))
-result = sorted(set (user_1).union(set (user_2), set (user_3))) 
-print (result)
+print (geo_mark)
+list_number = [] 
+for inner_list in geo_mark:
+   list_number.extend(inner_list)
+print (set (list_number))
+
 
 print ('Задание 2')
 queries = [
