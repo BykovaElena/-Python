@@ -207,6 +207,131 @@ print (sorted_stats)
 i = sorted_stats[-1][0]
 print (f'Максимальный объем продаж на рекламном канале:', i)
 
+#Домашнее задание к лекции «Функции»
+
+#Перечень всех документов.
+
+documents = [
+{'type': 'passport', 'number': '2207 876234', 'name': 'Василий Гупкин'},
+{'type': 'invoice', 'number': '11-2','name': 'Геннадий Покемонов'},
+{'type': 'insurance', 'number': '10006', 'name': 'Аристарх Павлов'}
+]
+
+# #Перечень полок, на которых хранятся документы. Если документ есть в documents, то он обязательно должен быть и в directories.
+directories = {
+'1': ['2207 876234', '11-2'],
+'2': ['10006'],
+'3': []
+}
+
+
+
+
+print ('Задание 1')
+def command_p():
+   '''
+   Пользователь по команде «p» может узнать владельца документа по его номеру
+   ''' 
+   document_number = input('Введите номер документа: ')
+   x = False
+   for i  in documents: 
+      if i ['number']  == document_number:
+         print (i ['name'])
+         x=True
+   if not x:
+    print ('Документ не найден в базе')  
+
+def command_s ():
+   '''
+   Пользователь по команде «s» может по номеру документа узнать, на какой полке он хранится
+   ''' 
+   
+   document_number = input('Введите номер документа: ')
+   shelf_values = []
+   for x in directories.values():
+      for i in x:
+         shelf_values.append(i)
+   if document_number in shelf_values:
+      for item, values in  directories.items():
+         if document_number in values:
+            shelf_number = 'Документ хранится на полке: ' + item
+            print( shelf_number)
+   else:
+      shelf_number = 'Документ не найден в базе'
+      print (shelf_number)  
+   return shelf_number
+
+ 
+def command_l():
+   '''
+   Пользователь по команде «l» может увидеть полную информацию по всем документам
+   ''' 
+   
+   for i in documents:
+      for item, values in directories.items():
+         if i['number'] in values:
+            print ('№: ', i['number'],','' ' 'тип: ', i['type'],','' ''владелец: ',  i['name'], 'полка хранения: ' , item)
+            
+      
+
+def command_ads():
+   '''
+   Пользователь по команде «ads» может добавить новую полку
+   ''' 
+   
+shelf_number_input = str(input('Веедите номер полки: '))
+if shelf_number_input in directories.keys() :
+      print ('Такая полка уже существует. Текущий перечень полок: ' , ','.join (list(directories.keys())))
+else:
+      directories[shelf_number_input]  = []
+      print ('Полка добавлена. Текущий перечень полок: ' , ','.join (list(directories.keys())))
+      
+   
+
+
+def command_ds():
+   '''
+   Пользователь по команде «ds» может удалить существующую полку из данных, только если она пустая
+   '''
+shelf_number_input = str(input('Веедите номер полки: ')) 
+empty = []
+list_doc = ','.join(list(directories.keys()))
+  
+for key, value in directories.items():
+   if value:
+        empty.append(key)
+if shelf_number_input in list_doc:
+   if shelf_number_input not in empty:
+      del(directories[shelf_number_input])
+      print ('Полка удалена. Текущий перечень полок: ', ','.join(list(directories.keys())))
+   else:
+        print ('На полке есть документы, удалите их перед удалением полки. Текущий перечень полок: ', list_doc ) 
+else:
+     print ('Такой полки не существует. Текущий перечень полок: ', list_doc)        
+
+   
+   
+   
+def document_owner():
+   user_input = input('Веедите команду: ')
+   while user_input != 'q':
+      if user_input == 'p':
+         command_p()
+      if user_input == 's':
+         command_s ()
+      if user_input == 'l':
+         command_l ()
+      if user_input == 'ads':
+         command_ads ()
+      if user_input == 'ds':
+         command_ds ()
+      
+      user_input = str(input('Веедите команду: ')) 
+          
+   
+   
+document_owner()
+
 
 
 
