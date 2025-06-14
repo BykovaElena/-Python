@@ -36,5 +36,5 @@ print ('Задание 3')
 # Вы можете взять любые страницы.
 
 import pandas as pd
-data=pd.read_html('https://fortraders.org/quotes')[1]
+data=pd.read_html('https://fortraders.org/quotes')[3]
 print (data.head())
